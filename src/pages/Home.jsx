@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Container from "../components/Container";
-import { menuLinks } from "../data/data";
+import { menuLinks, testimonials } from "../data/data";
 import { AnimatePresence, motion } from "framer-motion";
 
 const Home = () => {
@@ -8,6 +8,7 @@ const Home = () => {
     <>
       <HeroSection />
       <MainSection />
+      <Testimonials />
     </>
   );
 };
@@ -178,6 +179,40 @@ const MainSection = () => {
         </main>
       </Container>
     </>
+  );
+};
+
+const Testimonials = () => {
+  return (
+    <Container>
+      <div className="text-center my-24 sm:my-40">
+        <h3 className="uppercase text-testimonialsMobileTitle sm:text-testimonialsTitle text-neutral-grayish-blue tracking-[0.7rem] font-fw-bold">
+          Client testimonials
+        </h3>
+        <div className="grid sm:grid-cols-3 gap-8 sm:gap-32 px-10">
+          {testimonials.map((el) => (
+            <div key={el.id}>
+              <img
+                className="mx-auto mt-24 mb-14 sm:my-24 rounded-full size-32"
+                src={el.img}
+                alt={`${el.clientName} picture`}
+              />
+              <p className="text-mainSectionImagesDesc text-pretty text-neutral-very-dark-grayish-blue mb-10 sm:mb-24">
+                {el.testemo}
+              </p>
+              <div>
+                <h4 className="font-fw-bold text-clientName sm:mb-4">
+                  {el.clientName}
+                </h4>
+                <p className="text-neutral-grayish-blue text-mainSectionContent">
+                  {el.clientRole}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </Container>
   );
 };
 
