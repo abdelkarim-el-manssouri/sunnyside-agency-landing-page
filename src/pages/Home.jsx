@@ -9,6 +9,7 @@ const Home = () => {
       <HeroSection />
       <MainSection />
       <Testimonials />
+      <Gallery />
     </>
   );
 };
@@ -211,6 +212,19 @@ const Testimonials = () => {
             </div>
           ))}
         </div>
+      </div>
+    </Container>
+  );
+};
+
+const Gallery = () => {
+  return (
+    <Container>
+      <div className="grid [grid-template-areas:'bottle_orangeSlice''cone_sugar'] sm:[grid-template-areas:'bottle_orangeSlice_cone_sugar'] auto-cols-fr auto-rows-fr">
+        <div className="[grid-area:bottle] bg-[url('/images/mobile/image-gallery-milkbottles.jpg')] bg-cover bg-no-repeat bg-center min-h-[23rem] sm:min-h-[30rem]" />
+        <div className="[grid-area:orangeSlice] bg-[url('/images/mobile/image-gallery-orange.jpg')] bg-cover bg-no-repeat bg-center min-h-[23rem] sm:min-h-[30rem]" />
+        <div className="[grid-area:cone] bg-[url('/images/mobile/image-gallery-cone.jpg')] bg-cover bg-no-repeat bg-center min-h-[23rem] sm:min-h-[30rem]" />
+        <div className="[grid-area:sugar] bg-[url('/images/mobile/image-gallery-sugar-cubes.jpg')] bg-cover bg-no-repeat bg-center min-h-[23rem] sm:min-h-[30rem]" />
       </div>
     </Container>
   );
