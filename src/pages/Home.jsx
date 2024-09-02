@@ -7,6 +7,7 @@ const Home = () => {
   return (
     <>
       <HeroSection />
+      <MainSection />
     </>
   );
 };
@@ -54,6 +55,7 @@ const HeroSection = () => {
           <AnimatePresence>
             {open && (
               <motion.div
+                onClick={() => setOpen(false)}
                 key="bgMenu"
                 variants={bgMenuVariants}
                 initial="initial"
@@ -62,6 +64,7 @@ const HeroSection = () => {
                 className="absolute inset-0 bg-gradient-to-b from-black/80 via-neutral-white to-primary-yellow/80"
               >
                 <motion.div
+                  onClick={(e) => e.stopPropagation()}
                   key="bgMenuLinks"
                   variants={bgMenuLinksVariants}
                   initial="initial"
@@ -73,7 +76,7 @@ const HeroSection = () => {
                     {menuLinks.map((el) => (
                       <li
                         key={el.id}
-                        className="my-4 py-2  last-of-type:bg-primary-yellow last-of-type:px-16 last-of-type:py-7 last-of-type:rounded-full"
+                        className="my-4 py-2 last-of-type:bg-primary-yellow last-of-type:px-16 last-of-type:py-7 last-of-type:rounded-full last-of-type:font-Fraunces"
                       >
                         <a
                           className="text-neutral-dark-grayish-blue text-3xl"
@@ -102,6 +105,78 @@ const HeroSection = () => {
           </button>
         </Container>
       </div>
+    </>
+  );
+};
+
+const MainSection = () => {
+  return (
+    <>
+      <Container>
+        <main>
+          <div className="grid [grid-template-areas:'egg''transform''cup''stand'] sm:[grid-template-areas:'transform_egg''cup_stand'] text-center sm:text-start auto-cols-fr auto-rows-fr">
+            <div className="[grid-area:egg] bg-[url('/images/mobile/image-transform.jpg')] sm:bg-[url('/images/desktop/image-transform.jpg')] bg-cover bg-no-repeat bg-center" />
+            <div className="[grid-area:transform] grid place-content-center max-w-full py-40 sm:py-60">
+              <div className="mx-auto">
+                <h2 className="text-mainSectionTiltles w-[15ch] font-fw-bold leading-[1.2]">
+                  Transform your brand
+                </h2>
+                <p className="text-mainSectionContent my-10 w-[45ch] text-neutral-dark-grayish-blue">
+                  We are a full-service creative agency specializing in helping
+                  brands grow fast. Engage your clients through compelling
+                  visuals that do most of the marketing for you.
+                </p>
+                <button className="uppercase font-fw-semi-bold text-mainSectionButton relative before:absolute before:-left-[5%] before:bottom-1 before:w-[110%] before:h-2.5 before:bg-primary-yellow/50 before:rounded-full before:-z-10 hover:before:bg-primary-yellow before:transition before:ease-in">
+                  Learn more
+                </button>
+              </div>
+            </div>
+            <div className="[grid-area:cup] bg-[url('/images/mobile/image-stand-out.jpg')] sm:bg-[url('/images/desktop/image-stand-out.jpg')] bg-cover bg-no-repeat bg-center" />
+            <div className="[grid-area:stand] grid place-content-center max-w-full">
+              <div className="mx-auto">
+                <h2 className="text-mainSectionTiltles w-[15ch] font-fw-bold leading-[1.2]">
+                  Stand out to the right audience
+                </h2>
+                <p className="text-mainSectionContent my-10 w-[45ch] text-neutral-dark-grayish-blue">
+                  Using a collaborative formula of designers, researchers,
+                  photographers, videographers, and copywriters, we’ll build and
+                  extend your brand in digital places.
+                </p>
+                <button className="uppercase font-fw-semi-bold text-mainSectionButton relative before:absolute before:-left-[5%] before:bottom-1 before:w-[110%] before:h-2.5 before:bg-primary-red/50 before:rounded-full before:-z-10 hover:before:bg-primary-red before:transition before:ease-in">
+                  Learn more
+                </button>
+              </div>
+            </div>
+          </div>
+          <div className="grid [grid-template-areas:'cherry''orange'] sm:[grid-template-areas:'cherry_orange'] auto-cols-fr auto-rows-fr">
+            <div className="[grid-area:cherry] grid grid-rows-[1fr_auto] min-h-[48rem] h-[55rem] bg-[url('/images/mobile/image-graphic-design.jpg')] sm:bg-[url('/images/desktop/image-graphic-design.jpg')] bg-cover bg-no-repeat">
+              <div />
+              <div className="text-center min-h-40 px-10 sm:px-48 text-primary-dark-desaturated-cyan">
+                <h3 className="text-mainSectionImagesTitle font-fw-bold capitalize mb-8">
+                  Graphic design
+                </h3>
+                <p className="mb-16 sm:mb-28 text-mainSectionImagesDesc text-pretty">
+                  Great design makes you memorable. We deliver artwork that
+                  underscores your brand message and captures potential clients’
+                  attention.
+                </p>
+              </div>
+            </div>
+            <div className="[grid-area:orange] grid grid-rows-[1fr_auto] min-h-[48rem] bg-[url('/images/mobile/image-photography.jpg')] sm:bg-[url('/images/desktop/image-photography.jpg')] bg-cover bg-no-repeat">
+              <div />
+              <div className="text-center  min-h-40 px-10 sm:px-48 text-primary-dark-blue">
+                <h3 className="text-mainSectionImagesTitle font-fw-bold capitalize mb-8">
+                  Photography
+                </h3>
+                <p className="mb-16 sm:mb-28 text-mainSectionImagesDesc text-pretty">
+                  Increase your credibility by getting the most stunning,
+                  high-quality photos that improve your business image.
+                </p>
+              </div>
+            </div>
+          </div>
+        </main>
+      </Container>
     </>
   );
 };

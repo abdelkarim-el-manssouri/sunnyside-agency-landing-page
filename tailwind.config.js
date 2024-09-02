@@ -26,8 +26,13 @@ export default {
       },
       fontSize: {
         basefs: "1.125rem",
+        mainSectionTiltles: "3rem",
+        mainSectionContent: "1.3rem",
+        mainSectionButton: "1.4rem",
         headerTitle1: "3.5rem",
         headerTitle2: "6.5rem",
+        mainSectionImagesTitle: "2.5rem",
+        mainSectionImagesDesc: "1.55rem",
       },
     },
   },
