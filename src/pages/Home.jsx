@@ -2,16 +2,19 @@ import { useState } from "react";
 import Container from "../components/Container";
 import { menuLinks, testimonials } from "../data/data";
 import { AnimatePresence, motion } from "framer-motion";
+import { ReactLenis } from "lenis/react";
 
 const Home = () => {
   return (
-    <>
-      <HeroSection />
-      <MainSection />
-      <Testimonials />
-      <Gallery />
-      <Footer />
-    </>
+    <motion.div variants={homeVariants} initial="initial" animate="animate">
+      <ReactLenis root>
+        <HeroSection />
+        <MainSection />
+        <Testimonials />
+        <Gallery />
+        <Footer />
+      </ReactLenis>
+    </motion.div>
   );
 };
 
@@ -114,73 +117,71 @@ const HeroSection = () => {
 
 const MainSection = () => {
   return (
-    <>
-      <Container>
-        <main>
-          <div className="grid [grid-template-areas:'egg''transform''cup''stand'] sm:[grid-template-areas:'transform_egg''cup_stand'] text-center sm:text-start auto-cols-fr auto-rows-fr">
-            <div className="[grid-area:egg] bg-[url('/images/mobile/image-transform.jpg')] sm:bg-[url('/images/desktop/image-transform.jpg')] bg-cover bg-no-repeat bg-center" />
-            <div className="[grid-area:transform] grid place-content-center max-w-full py-40 sm:py-60">
-              <div className="mx-auto">
-                <h2 className="text-mainSectionTiltles w-[15ch] font-fw-bold leading-[1.2]">
-                  Transform your brand
-                </h2>
-                <p className="text-mainSectionContent my-10 w-[45ch] text-neutral-dark-grayish-blue">
-                  We are a full-service creative agency specializing in helping
-                  brands grow fast. Engage your clients through compelling
-                  visuals that do most of the marketing for you.
-                </p>
-                <button className="uppercase font-fw-semi-bold text-mainSectionButton relative before:absolute before:-left-[5%] before:bottom-1 before:w-[110%] before:h-2.5 before:bg-primary-yellow/50 before:rounded-full before:-z-10 hover:before:bg-primary-yellow before:transition before:ease-in">
-                  Learn more
-                </button>
-              </div>
-            </div>
-            <div className="[grid-area:cup] bg-[url('/images/mobile/image-stand-out.jpg')] sm:bg-[url('/images/desktop/image-stand-out.jpg')] bg-cover bg-no-repeat bg-center" />
-            <div className="[grid-area:stand] grid place-content-center max-w-full">
-              <div className="mx-auto">
-                <h2 className="text-mainSectionTiltles w-[15ch] font-fw-bold leading-[1.2]">
-                  Stand out to the right audience
-                </h2>
-                <p className="text-mainSectionContent my-10 w-[45ch] text-neutral-dark-grayish-blue">
-                  Using a collaborative formula of designers, researchers,
-                  photographers, videographers, and copywriters, we’ll build and
-                  extend your brand in digital places.
-                </p>
-                <button className="uppercase font-fw-semi-bold text-mainSectionButton relative before:absolute before:-left-[5%] before:bottom-1 before:w-[110%] before:h-2.5 before:bg-primary-red/50 before:rounded-full before:-z-10 hover:before:bg-primary-red before:transition before:ease-in">
-                  Learn more
-                </button>
-              </div>
+    <Container>
+      <main>
+        <div className="grid [grid-template-areas:'egg''transform''cup''stand'] sm:[grid-template-areas:'transform_egg''cup_stand'] text-center sm:text-start auto-cols-fr auto-rows-fr">
+          <div className="[grid-area:egg] bg-[url('/images/mobile/image-transform.jpg')] sm:bg-[url('/images/desktop/image-transform.jpg')] bg-cover bg-no-repeat bg-center" />
+          <div className="[grid-area:transform] grid place-content-center max-w-full py-40 sm:py-60">
+            <div className="mx-auto">
+              <h2 className="text-mainSectionTiltles w-[15ch] font-fw-bold leading-[1.2]">
+                Transform your brand
+              </h2>
+              <p className="text-mainSectionContent my-10 w-[45ch] text-neutral-dark-grayish-blue">
+                We are a full-service creative agency specializing in helping
+                brands grow fast. Engage your clients through compelling visuals
+                that do most of the marketing for you.
+              </p>
+              <button className="uppercase font-fw-semi-bold text-mainSectionButton relative before:absolute before:-left-[5%] before:bottom-1 before:w-[110%] before:h-2.5 before:bg-primary-yellow/50 before:rounded-full before:-z-10 hover:before:bg-primary-yellow before:transition before:ease-in">
+                Learn more
+              </button>
             </div>
           </div>
-          <div className="grid [grid-template-areas:'cherry''orange'] sm:[grid-template-areas:'cherry_orange'] auto-cols-fr auto-rows-fr">
-            <div className="[grid-area:cherry] grid grid-rows-[1fr_auto] min-h-[48rem] h-[55rem] bg-[url('/images/mobile/image-graphic-design.jpg')] sm:bg-[url('/images/desktop/image-graphic-design.jpg')] bg-cover bg-no-repeat">
-              <div />
-              <div className="text-center min-h-40 px-10 sm:px-48 text-primary-dark-desaturated-cyan">
-                <h3 className="text-mainSectionImagesTitle font-fw-bold capitalize mb-8">
-                  Graphic design
-                </h3>
-                <p className="mb-16 sm:mb-28 text-mainSectionImagesDesc text-pretty">
-                  Great design makes you memorable. We deliver artwork that
-                  underscores your brand message and captures potential clients’
-                  attention.
-                </p>
-              </div>
-            </div>
-            <div className="[grid-area:orange] grid grid-rows-[1fr_auto] min-h-[48rem] bg-[url('/images/mobile/image-photography.jpg')] sm:bg-[url('/images/desktop/image-photography.jpg')] bg-cover bg-no-repeat">
-              <div />
-              <div className="text-center  min-h-40 px-10 sm:px-48 text-primary-dark-blue">
-                <h3 className="text-mainSectionImagesTitle font-fw-bold capitalize mb-8">
-                  Photography
-                </h3>
-                <p className="mb-16 sm:mb-28 text-mainSectionImagesDesc text-pretty">
-                  Increase your credibility by getting the most stunning,
-                  high-quality photos that improve your business image.
-                </p>
-              </div>
+          <div className="[grid-area:cup] bg-[url('/images/mobile/image-stand-out.jpg')] sm:bg-[url('/images/desktop/image-stand-out.jpg')] bg-cover bg-no-repeat bg-center" />
+          <div className="[grid-area:stand] grid place-content-center max-w-full">
+            <div className="mx-auto">
+              <h2 className="text-mainSectionTiltles w-[15ch] font-fw-bold leading-[1.2]">
+                Stand out to the right audience
+              </h2>
+              <p className="text-mainSectionContent my-10 w-[45ch] text-neutral-dark-grayish-blue">
+                Using a collaborative formula of designers, researchers,
+                photographers, videographers, and copywriters, we’ll build and
+                extend your brand in digital places.
+              </p>
+              <button className="uppercase font-fw-semi-bold text-mainSectionButton relative before:absolute before:-left-[5%] before:bottom-1 before:w-[110%] before:h-2.5 before:bg-primary-red/50 before:rounded-full before:-z-10 hover:before:bg-primary-red before:transition before:ease-in">
+                Learn more
+              </button>
             </div>
           </div>
-        </main>
-      </Container>
-    </>
+        </div>
+        <div className="grid [grid-template-areas:'cherry''orange'] sm:[grid-template-areas:'cherry_orange'] auto-cols-fr auto-rows-fr">
+          <div className="[grid-area:cherry] grid grid-rows-[1fr_auto] min-h-[48rem] h-[55rem] bg-[url('/images/mobile/image-graphic-design.jpg')] sm:bg-[url('/images/desktop/image-graphic-design.jpg')] bg-cover bg-no-repeat">
+            <div />
+            <div className="text-center min-h-40 px-10 sm:px-48 text-primary-dark-desaturated-cyan">
+              <h3 className="text-mainSectionImagesTitle font-fw-bold capitalize mb-8">
+                Graphic design
+              </h3>
+              <p className="mb-16 sm:mb-28 text-mainSectionImagesDesc text-pretty">
+                Great design makes you memorable. We deliver artwork that
+                underscores your brand message and captures potential clients’
+                attention.
+              </p>
+            </div>
+          </div>
+          <div className="[grid-area:orange] grid grid-rows-[1fr_auto] min-h-[48rem] bg-[url('/images/mobile/image-photography.jpg')] sm:bg-[url('/images/desktop/image-photography.jpg')] bg-cover bg-no-repeat">
+            <div />
+            <div className="text-center  min-h-40 px-10 sm:px-48 text-primary-dark-blue">
+              <h3 className="text-mainSectionImagesTitle font-fw-bold capitalize mb-8">
+                Photography
+              </h3>
+              <p className="mb-16 sm:mb-28 text-mainSectionImagesDesc text-pretty">
+                Increase your credibility by getting the most stunning,
+                high-quality photos that improve your business image.
+              </p>
+            </div>
+          </div>
+        </div>
+      </main>
+    </Container>
   );
 };
 
@@ -237,7 +238,7 @@ const Footer = () => {
       <div className="bg-primary-moderate-cyan grid place-items-center py-16">
         <a href="#">
           <svg
-            className="my-8 hover:fill-neutral-white transition-colors ease-in"
+            className="my-8 hover:stroke-neutral-white transition-colors ease-in"
             width="124"
             height="24"
             xmlns="http://www.w3.org/2000/svg"
@@ -278,7 +279,7 @@ const Footer = () => {
           <li>
             <a className="group" href="#">
               <svg
-                className="group-hover:fill-neutral-white transition-colors ease-in"
+                className="group-hover:stroke-neutral-white transition"
                 width="20"
                 height="20"
                 xmlns="http://www.w3.org/2000/svg"
@@ -291,8 +292,13 @@ const Footer = () => {
             </a>
           </li>
           <li>
-            <a href="#">
-              <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg">
+            <a className="group" href="#">
+              <svg
+                className="group-hover:stroke-neutral-white transition ease-in"
+                width="20"
+                height="20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
                 <path
                   d="M10 1.802c2.67 0 2.987.01 4.042.059 2.71.123 3.975 1.409 4.099 4.099.048 1.054.057 1.37.057 4.04 0 2.672-.01 2.988-.057 4.042-.124 2.687-1.387 3.975-4.1 4.099-1.054.048-1.37.058-4.041.058-2.67 0-2.987-.01-4.04-.058-2.718-.124-3.977-1.416-4.1-4.1-.048-1.054-.058-1.37-.058-4.041 0-2.67.01-2.986.058-4.04.124-2.69 1.387-3.977 4.1-4.1 1.054-.048 1.37-.058 4.04-.058zM10 0C7.284 0 6.944.012 5.877.06 2.246.227.227 2.242.061 5.877.01 6.944 0 7.284 0 10s.012 3.057.06 4.123c.167 3.632 2.182 5.65 5.817 5.817 1.067.048 1.407.06 4.123.06s3.057-.012 4.123-.06c3.629-.167 5.652-2.182 5.816-5.817.05-1.066.061-1.407.061-4.123s-.012-3.056-.06-4.122C19.777 2.249 17.76.228 14.124.06 13.057.01 12.716 0 10 0zm0 4.865a5.135 5.135 0 100 10.27 5.135 5.135 0 000-10.27zm0 8.468a3.333 3.333 0 110-6.666 3.333 3.333 0 010 6.666zm5.338-9.87a1.2 1.2 0 100 2.4 1.2 1.2 0 000-2.4z"
                   fill="hsl(167, 40%, 24%)"
@@ -301,8 +307,13 @@ const Footer = () => {
             </a>
           </li>
           <li>
-            <a href="#">
-              <svg width="20" height="17" xmlns="http://www.w3.org/2000/svg">
+            <a className="group" href="#">
+              <svg
+                className="group-hover:stroke-neutral-white transition ease-in"
+                width="20"
+                height="17"
+                xmlns="http://www.w3.org/2000/svg"
+              >
                 <path
                   d="M20 2.172a8.192 8.192 0 01-2.357.646 4.11 4.11 0 001.805-2.27 8.22 8.22 0 01-2.606.996A4.096 4.096 0 0013.847.248c-2.65 0-4.596 2.472-3.998 5.037A11.648 11.648 0 011.392 1a4.109 4.109 0 001.27 5.478 4.086 4.086 0 01-1.858-.513c-.045 1.9 1.318 3.679 3.291 4.075a4.113 4.113 0 01-1.853.07 4.106 4.106 0 003.833 2.849A8.25 8.25 0 010 14.658a11.616 11.616 0 006.29 1.843c7.618 0 11.923-6.434 11.663-12.205A8.354 8.354 0 0020 2.172z"
                   fill="hsl(167, 40%, 24%)"
@@ -311,8 +322,13 @@ const Footer = () => {
             </a>
           </li>
           <li>
-            <a href="#">
-              <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg">
+            <a className="group" href="#">
+              <svg
+                className="group-hover:stroke-neutral-white transition ease-in"
+                width="20"
+                height="20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
                 <path
                   d="M10 0C4.477 0 0 4.477 0 10c0 4.237 2.636 7.855 6.356 9.312-.088-.791-.167-2.005.035-2.868.181-.78 1.172-4.97 1.172-4.97s-.299-.6-.299-1.486c0-1.39.806-2.428 1.81-2.428.852 0 1.264.64 1.264 1.408 0 .858-.546 2.14-.828 3.33-.236.995.5 1.807 1.48 1.807 1.778 0 3.144-1.874 3.144-4.58 0-2.393-1.72-4.068-4.176-4.068-2.845 0-4.516 2.135-4.516 4.34 0 .859.331 1.781.745 2.281a.3.3 0 01.069.288l-.278 1.133c-.044.183-.145.223-.335.134-1.249-.581-2.03-2.407-2.03-3.874 0-3.154 2.292-6.052 6.608-6.052 3.469 0 6.165 2.473 6.165 5.776 0 3.447-2.173 6.22-5.19 6.22-1.013 0-1.965-.525-2.291-1.148l-.623 2.378c-.226.869-.835 1.958-1.244 2.621.937.29 1.931.446 2.962.446 5.523 0 10-4.477 10-10S15.523 0 10 0z"
                   fill="hsl(167, 40%, 24%)"
@@ -321,6 +337,24 @@ const Footer = () => {
             </a>
           </li>
         </ul>
+      </div>
+      <div className="bg-primary-moderate-cyan text-center text-xl py-6 text-neutral-dark-desaturated-blue">
+        Challenge by{" "}
+        <a
+          className="text-black"
+          href="https://www.frontendmentor.io?ref=challenge"
+          target="_blank"
+        >
+          Frontend Mentor
+        </a>
+        . Coded by{" "}
+        <a
+          href="https://github.com/abdelkarim-el-manssouri"
+          className="capitalize text-black"
+        >
+          Abdelkarim el manssouri
+        </a>
+        .
       </div>
     </Container>
   );
@@ -362,5 +396,21 @@ const bgMenuLinksVariants = {
   exit: {
     opacity: 0,
     translateY: "-200%",
+  },
+};
+
+const homeVariants = {
+  initial: {
+    y: 30,
+    opacity: 0.4,
+    filter: "blur(20px)",
+  },
+  animate: {
+    y: 0,
+    opacity: 1,
+    filter: "blur(0px)",
+    transition: {
+      duration: 1,
+    },
   },
 };
