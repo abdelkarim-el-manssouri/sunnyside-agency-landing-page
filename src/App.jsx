@@ -1,9 +1,9 @@
-import Home from "./pages/Home";
+import Diamond3D from "./components/Diamond3D";
 
 function App() {
   return (
     <div>
-      <Home />
+      <Diamond3D />
     </div>
   );
 }
